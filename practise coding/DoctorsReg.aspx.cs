@@ -18,10 +18,5 @@ namespace practise_coding
         {
 
         }
-
-        protected void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -100,7 +100,6 @@
         <a href="#">My Profile</a>
         <a href="DoctorEditPro.aspx">Availability</a>
         <a href="#">Client</a>
-         
         <a href="#">Reports</a>
     </div>
 
@@ -133,36 +132,63 @@
            </div>
            <div class="card-body">
                <div class="alert alert-info">
-                   <h4>My Clients</h4>
-                   <p>Bookings</p>
+                   <h4>My Profile</h4>
+                   <p>Your registration information was successfully transferred using Response.Redirect with Query Strings.</p>
                </div>
 
+               <h3 class="text-center">Profile Information</h3>
+                   
                
-              <asp:GridView ID="DoctorAppointmentsGrid" runat="server" AutoGenerateColumns="False"  
-    DataKeyNames="AppointmentID" CssClass="table table-sm" 
-    OnRowCommand="DoctorAppointmentsGrid_RowCommand" 
-    OnSelectedIndexChanged="DoctorAppointmentsGrid_SelectedIndexChanged1"> 
-    <Columns>
-        <asp:BoundField DataField="ClientName" HeaderText="Client Name" SortExpression="ClientName" />
-        <asp:BoundField DataField="Reason" HeaderText="Reason" SortExpression="Reason" />
-        <asp:BoundField DataField="BookingDate" HeaderText="Booking Date" SortExpression="BookingDate" DataFormatString="{0:yyyy-MM-dd}" />
-        <asp:BoundField DataField="SlotDate" HeaderText="Slot Date" SortExpression="SlotDate" DataFormatString="{0:yyyy-MM-dd}" />
-        <asp:BoundField DataField="StartTime" HeaderText="Start Time" SortExpression="StartTime" />
-        <asp:BoundField DataField="EndTime" HeaderText="End Time" SortExpression="EndTime" />
-        <asp:TemplateField>
-            <ItemTemplate>
-                <asp:Button ID="AcceptButton" runat="server" Text="Accept" CommandName="Accept" CommandArgument='<%# Eval("AppointmentID") %>' />
-                <asp:Button ID="CancelButton" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%# Eval("AppointmentID") %>' />
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
-          </div>
-           </div>
-       </div>
+               <div class="table-responsive">
+                   <table class="table table-bordered">
+                       <tr>
+                           <th>Full Name:</th>
+                           <td><asp:Label ID="lblDocFullName" runat="server"></asp:Label></td>
+                       </tr>
+                       <tr>
+                           <th> Address:</th>
+                           <td><asp:Label ID="lblDocAddress" runat="server"></asp:Label></td>
+                       </tr>
+                       <tr>
+                        <th>Email Address:</th>
+                         <td><asp:Label ID="lblDocEmail" runat="server"></asp:Label></td>
+                         </tr>
+                        <tr>
+                           <th>Profession:</th>
+                        <td><asp:Label ID="lblDocProfession" runat="server"></asp:Label></td>
+                       </tr>
+                       <tr>
+                           <th>Contact:</th>
+                           <td><asp:Label ID="lblDocContact" runat="server"></asp:Label></td>
+                       </tr>
+                   </table>
+               </div>
+               
+              
+               </div>
+              </div>
+               
+              <div class="col-md-8 mx-auto border border-primary">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="DoctorID" DataSourceID="SqlDataSource1" Width="1031px">
+            <Columns>
+    <asp:BoundField DataField="DoctorID" HeaderText="DoctorID" InsertVisible="False" ReadOnly="True" SortExpression="DoctorID" />
+    <asp:BoundField DataField="DoctorName" HeaderText="DoctorName" SortExpression="DoctorName" />
+    <asp:BoundField DataField="DoctorAddress" HeaderText="DoctorAddress" SortExpression="DoctorAddress" />
+    <asp:BoundField DataField="DoctorContact" HeaderText="DoctorContact" SortExpression="DoctorContact" />
+    <asp:BoundField DataField="DoctorEmail" HeaderText="DoctorEmail" SortExpression="DoctorEmail" />
+               
+                <asp:BoundField DataField="LicenceNumber" HeaderText="LicenceNumber" SortExpression="LicenceNumber" />
+                <asp:BoundField DataField="DoctorSpecialisation" HeaderText="DoctorSpecialisation" SortExpression="DoctorSpecialisation" />
+                <asp:BoundField DataField="Hospital" HeaderText="Hospital" SortExpression="Hospital" />
+               
+</Columns>
+       </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AyfaCareConnectionString7 %>" ProviderName="<%$ ConnectionStrings:AyfaCareConnectionString7.ProviderName %>" SelectCommand="SELECT [DoctorID], [DoctorName], [DoctorAddress], [DoctorContact], [DoctorEmail], [LicenceNumber], [DoctorSpecialisation], [Hospital], [Picture] FROM [Dr_Registration]"></asp:SqlDataSource>
+              </div>
+             </div>
             </div>
-            <asp:Label ID="lblStatus" runat="server" Text="Label"></asp:Label>
-            
-   </form>
+    </form>
+         
+   
 </body>
 </html>

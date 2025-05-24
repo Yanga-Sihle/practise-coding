@@ -58,10 +58,5 @@ namespace practise_coding
             }
 
         }
-
-        protected void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

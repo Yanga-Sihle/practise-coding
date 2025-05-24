@@ -58,10 +58,5 @@ namespace practise_coding
             }
 
         }
-
-        protected void txtEmailAdd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

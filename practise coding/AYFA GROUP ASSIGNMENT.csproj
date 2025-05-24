@@ -82,14 +82,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images for home page\afif-ramdhasuma-lPjeFCIFJwk-unsplash.jpg" />
-    <Content Include="images for home page\artur-tumasjan-qLzWvcQq-V8-unsplash.jpg" />
-    <Content Include="images for home page\jc-gellidon-uhXlRnt9dTw-unsplash.jpg" />
-    <Content Include="images for home page\pexels-jmeyer1220-668298.jpg" />
-    <Content Include="images for home page\pexels-laura-james-6098047.jpg" />
-    <Content Include="images for home page\pexels-pixabay-40568.jpg" />
-    <Content Include="images for home page\rusty-watson-yIGinlYA6t8-unsplash.jpg" />
-    <Content Include="Pictures\Healthcare Humanoid GIF _ GIFDB_com.gif" />
     <Content Include="ClientBooking.aspx" />
     <Content Include="clinic.png" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -272,20 +264,8 @@
     <Content Include="DoctorsReg.aspx" />
     <Content Include="DoctorsProfileUpdate.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="gps.png" />
-    <Content Include="hospital.png" />
-    <Content Include="ImageUploadBase\user.png" />
-    <Content Include="Pictures\istockphoto-1147760364-2048x2048.jpg" />
-    <Content Include="Pictures\email.png" />
-    <Content Include="Pictures\maps-and-flags.png" />
-    <Content Include="Pictures\pexels-chokniti-khongchum-1197604-2280549.jpg" />
-    <Content Include="Pictures\pexels-karolina-grabowska-4197562.jpg" />
-    <Content Include="Pictures\phone.png" />
-    <Content Include="Pictures\stethoscope.png" />
     <Content Include="Private.aspx" />
-    <Content Include="PublicForm.aspx" />
     <Content Include="PublicHealth.aspx" />
-    <Content Include="PublicHospital.aspx" />
     <Content Include="rating-stars.png" />
     <Content Include="Registerform.aspx" />
     <Content Include="Results.aspx" />
@@ -295,7 +275,7 @@
     <Content Include="DoctorsList.aspx" />
     <Content Include="DoctorsBookingPro.aspx" />
     <Content Include="DoctorEditPro.aspx" />
-    <Content Include="DoctorsLogins.aspx" />
+    <Content Include="DoctotrsLogins.aspx" />
     <Content Include="DoctorsClient.aspx" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
@@ -333,13 +313,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="PublicBooking.aspx" />
-    <Content Include="PublicUpdate.aspx" />
-    <Content Include="PublicClientbook.aspx" />
-    <Content Include="AppointConfirm.aspx" />
-    <Content Include="BookedClients.aspx" />
-    <Content Include="Doctorsbg.Master" />
-    <Content Include="doctors.Master" />
+    <Content Include="WebForm10.aspx" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -435,20 +409,6 @@
     <Compile Include="ClientBooking.aspx.designer.cs">
       <DependentUpon>ClientBooking.aspx</DependentUpon>
     </Compile>
-    <Compile Include="doctors.Master.cs">
-      <DependentUpon>doctors.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="doctors.Master.designer.cs">
-      <DependentUpon>doctors.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Doctorsbg.Master.cs">
-      <DependentUpon>Doctorsbg.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Doctorsbg.Master.designer.cs">
-      <DependentUpon>Doctorsbg.Master</DependentUpon>
-    </Compile>
     <Compile Include="DoctorsReg.aspx.cs">
       <DependentUpon>DoctorsReg.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -471,26 +431,12 @@
       <DependentUpon>Private.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublicForm.aspx.cs">
-      <DependentUpon>PublicForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PublicForm.aspx.designer.cs">
-      <DependentUpon>PublicForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="PublicHealth.aspx.cs">
       <DependentUpon>PublicHealth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PublicHealth.aspx.designer.cs">
       <DependentUpon>PublicHealth.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PublicHospital.aspx.cs">
-      <DependentUpon>PublicHospital.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PublicHospital.aspx.designer.cs">
-      <DependentUpon>PublicHospital.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registerform.aspx.cs">
       <DependentUpon>Registerform.aspx</DependentUpon>
@@ -576,12 +522,12 @@
     <Compile Include="DoctorEditPro.aspx.designer.cs">
       <DependentUpon>DoctorEditPro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DoctorsLogins.aspx.cs">
-      <DependentUpon>DoctorsLogins.aspx</DependentUpon>
+    <Compile Include="DoctotrsLogins.aspx.cs">
+      <DependentUpon>DoctotrsLogins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DoctorsLogins.aspx.designer.cs">
-      <DependentUpon>DoctorsLogins.aspx</DependentUpon>
+    <Compile Include="DoctotrsLogins.aspx.designer.cs">
+      <DependentUpon>DoctotrsLogins.aspx</DependentUpon>
     </Compile>
     <Compile Include="DoctorsClient.aspx.cs">
       <DependentUpon>DoctorsClient.aspx</DependentUpon>
@@ -590,40 +536,12 @@
     <Compile Include="DoctorsClient.aspx.designer.cs">
       <DependentUpon>DoctorsClient.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PublicBooking.aspx.cs">
-      <DependentUpon>PublicBooking.aspx</DependentUpon>
+    <Compile Include="WebForm10.aspx.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PublicBooking.aspx.designer.cs">
-      <DependentUpon>PublicBooking.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PublicUpdate.aspx.cs">
-      <DependentUpon>PublicUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PublicUpdate.aspx.designer.cs">
-      <DependentUpon>PublicUpdate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PublicClientbook.aspx.cs">
-      <DependentUpon>PublicClientbook.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PublicClientbook.aspx.designer.cs">
-      <DependentUpon>PublicClientbook.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AppointConfirm.aspx.cs">
-      <DependentUpon>AppointConfirm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AppointConfirm.aspx.designer.cs">
-      <DependentUpon>AppointConfirm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BookedClients.aspx.cs">
-      <DependentUpon>BookedClients.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BookedClients.aspx.designer.cs">
-      <DependentUpon>BookedClients.aspx</DependentUpon>
+    <Compile Include="WebForm10.aspx.designer.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -640,6 +558,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fontawesome\" />
+    <Folder Include="ImageUploadBase\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

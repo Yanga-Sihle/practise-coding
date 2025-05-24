@@ -13,7 +13,17 @@
        
           
         
-       
+        <div class="col-2">
+              <label>Type:</label>
+          <asp:DropDownList ID="DropDownList1" runat="server" >
+      <asp:ListItem Text="Dentist" Value="Dentist"></asp:ListItem>
+      <asp:ListItem Text="Surgery" Value="Surgery"></asp:ListItem>
+      <asp:ListItem Text="Gynaecologist" Value="Gynaecologist"></asp:ListItem>
+       <asp:ListItem Text="Vitality Health Check" Value="Vitality Health Check"></asp:ListItem>
+       <asp:ListItem Text="Virtual Consult" Value="Virtual Consult"></asp:ListItem>
+  </asp:DropDownList>
+
+        </div>
         <hr class="bg-primary"/>
 
     </div>

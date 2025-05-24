@@ -65,7 +65,7 @@
    
     <div class="md-3">
    <label>Email Address:</label>
-<asp:TextBox ID="txtEmailAdd" CssClass=" form-control" placeholder="Email" runat="server" OnTextChanged="txtEmailAdd_TextChanged"></asp:TextBox>
+<asp:TextBox ID="txtEmailAdd" CssClass=" form-control" placeholder="Email" runat="server"></asp:TextBox>
    </div>
     <div class="md-3">
         <label>Password:</label>
