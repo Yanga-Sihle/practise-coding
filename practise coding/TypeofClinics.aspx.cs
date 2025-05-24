@@ -13,5 +13,10 @@ namespace practise_coding
 		{
 
 		}
-	}
+
+        protected void btnPrivate_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -1,29 +1,270 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Results.aspx.cs" Inherits="practise_coding.Results" %>
 
+<%@ Register assembly="Microsoft.ReportViewer.WebForms" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-         <div class="container mt-4">
-     <div class="alert alert-success">
+   
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <title>Client Registration</title>
+ <script src="Scripts/jquery-3.7.1.js"></script>
+  <link rel="stylesheet" href="Content/bootstrap.css" />
+  <link rel="stylesheet" href="datatables/css/dataTables.dataTables.min.css" />
+  <script src="datatables/js/dataTables.min.js"></script>
+  <link rel="stylesheet" href="Content/bootstrap.min.css" />
+ <script src="Scripts/jquery-3.7.1.slim.min.js"></script>
+   <script src="Scripts/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+    
+    
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+body {
+    padding-bottom: 100px;
+    background: linear-gradient(
+        to bottom right,
+        #4b4b4b 0%,        /* Space grey start */
+        #4b4b4b 60%,       /* 60% space grey */
+        rgba(245, 245, 245, 0.8) 80%,  /* Fading white */
+        rgba(245, 245, 245, 0.4) 100%  /* Lighter fade at the end */
+    );
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+    nav.navbar,
+    footer {
+      background: linear-gradient(135deg, rgba(40, 28, 45, 0.9), rgba(111, 66, 193, 0.9)); /* Ebony to purple */
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 
- 
-     <h1>Service</h1>
-    
-         <ul>
-             <li><strong>Full Name</strong><asp:Label ID="lblfullname" runat="server" ></asp:Label>  </li>
-              <li><strong>Full Name</strong><asp:Label ID="lblEmail" runat="server" ></asp:Label>  </li>
-         </ul>
-         </div>
+    nav.navbar:hover,
+    footer:hover {
+      background: linear-gradient(135deg, rgba(40, 28, 45, 1), rgba(111, 66, 193, 1));
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    nav.navbar a,
+    footer a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav.navbar a:hover,
+    footer a:hover {
+      color: #d1c4e9;
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+
+    .form-control::placeholder {
+      color: #ccc;
+    }
+  </style>
+    <style>
+    .border-animated-purple {
+        border: 2px solid #d6b3ff;
+        animation: borderPulse 2s infinite ease-in-out;
+        box-shadow: 0 0 10px rgba(204, 153, 255, 0.3);
+    }
+
+    @keyframes borderPulse {
+        0% {
+            border-color: #d6b3ff;
+            box-shadow: 0 0 10px rgba(204, 153, 255, 0.3);
+        }
+        50% {
+            border-color: #b266ff;
+            box-shadow: 0 0 20px rgba(204, 153, 255, 0.6);
+        }
+        100% {
+            border-color: #d6b3ff;
+            box-shadow: 0 0 10px rgba(204, 153, 255, 0.3);
+        }
+    }
+</style>
+</head>
+
+<body>
+   <form id="form1" runat="server">
+           <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="#">
+          <i class="fas fa-clinic-medical me-2" style="font-size: 1.6rem;"></i>
+          AyfaCare
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="Home.aspx">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="Login.aspx">Patient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="DoctorsLogins.aspx">Doctors</a>
+            </li>
+               <li class="nav-item">
+               <a class="nav-link active text-white" aria-current="page" href="DoctorsProfileUpdate.aspx">Clients</a>
+            </li>
+                 <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="BookedClients.aspx">Booked Clients</a>
+            </li>
+                   <li class="nav-item">
+    <a class="nav-link active text-white" aria-current="page" href="Results.aspx">Reports</a>
+</li>
+          </ul>
+           
+          <div class="row">
+            <div class="col-4">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            </div>
+            <div class="col-6">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </div>
+          </div>
         </div>
-        <br />
-       <br />
-      <asp:Button ID="btnSave" runat="server" Text="Save" />
-    
-    </form>
+      </div>
+    </nav>
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+<div class="container mt-5">
+    <!-- Dashboard Cards Row -->
+    <div class="row text-center mb-5">
+        <!-- Bookings Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-animated-purple shadow">
+                <div class="card-header bg-light text-dark fw-bold">Bookings</div>
+                <div class="card-body text-center">
+                    <h1 class="display-4">
+                        <asp:Label ID="lblTotalBookings" runat="server" Text="0" />
+                    </h1>
+                    <p class="card-text">Total Bookings from DAppointments</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmed Bookings Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-animated-purple shadow">
+                <div class="card-header bg-light text-dark fw-bold">Confirmed Bookings</div>
+                <div class="card-body text-center">
+                    <h1 class="display-4">
+                        <asp:Label ID="lblConfirmedBookings" runat="server" Text="0" />
+                    </h1>
+                    <p class="card-text">Confirmed from ConfirmedBookings</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card border-animated-purple shadow">
+                <div class="card-header bg-light text-dark fw-bold">Payments</div>
+                <div class="card-body text-center">
+                    <h1 class="display-4">
+                        <asp:Label ID="lblPayments" runat="server" Text="R0.00" />
+                    </h1>
+                    <p class="card-text">Total Payment Received</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ReportViewer Section -->
+  <style>
+    .glass-card {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
+        box-shadow: 0 4px 30px rgba(128, 0, 128, 0.3); /* Soft purple shadow */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid rgba(128, 0, 128, 0.5); /* Purple border */
+        padding: 2rem;
+    }
+</style>
+
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div class="glass-card">
+            <h4 class="text-center mb-4 text-dark fw-bold">Confirmed Bookings Report</h4>
+
+           <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+    ConnectionString="<%$ ConnectionStrings:AyfaCareConnectionString10 %>"
+    SelectCommand="SELECT [SlotEndTime], [SlotStartTime], [SlotDate], [BookingDate], [ClientName], [BookingID] 
+                   FROM [ConfirmedBookings] 
+                   WHERE [DoctorID] = @DoctorID">
+    <SelectParameters>
+        <asp:SessionParameter Name="DoctorID" SessionField="DoctorID" Type="Int32" />
+    </SelectParameters>
+</asp:SqlDataSource>
+
+
+            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="100%" Height="600px">
+                <LocalReport ReportPath="Reportdoc.rdlc">
+                    <DataSources>
+                        <rsweb:ReportDataSource DataSourceId="SqlDataSource1" Name="DataSetPrivate" />
+                    </DataSources>
+                </LocalReport>
+            </rsweb:ReportViewer>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+       <footer>
+  <div class="container">
+    <div class="row">
+      <!-- Navigation Links -->
+      <div class="col-md-6 mb-3 mb-md-0">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a href="ManagerSignIn.aspx" class="text-white text-decoration-none">Management</a></li>
+          <li class="list-inline-item"><a href="/about" class="text-white text-decoration-none">About</a></li>
+        </ul>
+      </div>
+      <!-- Social Media Icons -->
+      <div class="col-md-6 text-md-end">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <a href="https://facebook.com" target="_blank" class="text-white text-decoration-none">
+              <i class="fab fa-facebook fa-lg me-1"></i>Facebook
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://instagram.com" target="_blank" class="text-white text-decoration-none">
+              <i class="fab fa-instagram fa-lg me-1"></i>Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="row mt-3">
+      <div class="col text-center">
+        <small>&copy; 2025 AyfaCare. All rights reserved.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+</form>
+
 </body>
 </html>

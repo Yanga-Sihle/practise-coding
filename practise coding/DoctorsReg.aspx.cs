@@ -18,5 +18,15 @@ namespace practise_coding
         {
 
         }
+
+        protected void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBoxAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
