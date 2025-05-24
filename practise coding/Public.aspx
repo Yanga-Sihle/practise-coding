@@ -44,19 +44,98 @@
     </div>
         <div>
             <label>Type:</label>
-            <asp:DropDownList ID="DropDownList1" runat="server">
-                <asp:ListItem Text="Dentist" Value="Dentist"></asp:ListItem>
-                <asp:ListItem Text="Surgery" Value="Surgery"></asp:ListItem>
-                <asp:ListItem Text="Gynaecologist" Value="Gynaecologist"></asp:ListItem>
-                 <asp:ListItem Text="Vitality Health Check" Value="Vitality Health Check"></asp:ListItem>
-                 <asp:ListItem Text="Virtual Consult" Value="Virtual Consult"></asp:ListItem>
-            </asp:DropDownList>
         </div>
          
         </div>
   </div>
      </nav>
       </div>
+                    <div class="row">
+                <div class="col-md-4">
+            <div class=" container col-6 ">
+                 <div class=" card row">
+       <label>Type:</label>
+
+</div>
+
+            </div>
+        </div>
+                <div class="col-md-8">
+
+          <asp:SqlDataSource ID="SqlDataSourcepub" runat="server"
+    ConnectionString="<%$ ConnectionStrings:AyfaCareConnectionString8 %>"
+    SelectCommand="SELECT * FROM [PublicHospital]">
+</asp:SqlDataSource>
+
+<asp:GridView ID="GridView1" runat="server" CssClass="table table-striped table-bordered"
+    AutoGenerateColumns="False" DataSourceID="SqlDataSourcepub"
+    OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+    DataKeyNames="HospitalID">  <%-- ADDED DataKeyNames HERE --%>
+    <Columns>
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button ID="btnBooks" runat="server" Text="Book" CommandName="Select"
+                    CssClass="btn btn-primary" />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+        <asp:TemplateField>
+            <ItemTemplate>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-12">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <asp:Image ID="Image3" ImageUrl="~/gps.png" Height="20" Width="20" runat="server" />
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Province") %>'></asp:Label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <asp:Image ID="Image2" ImageUrl="~/hospital.png" Height="20" Width="20" runat="server" />
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("Department") %>'></asp:Label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <asp:Image ID="Image4" ImageUrl="~/Pictures/maps-and-flags.png" Height="20" Width="20" runat="server" />
+                                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <asp:Image ID="Image5" ImageUrl="~/Pictures/email.png" Height="20" Width="20" runat="server" />
+                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <asp:Image ID="Image6" ImageUrl="~/Pictures/phone.png" Height="20" Width="20" runat="server" />
+                                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("Telephone") %>'></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <asp:Image CssClass="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("Picture") %>' />
+                        </div>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+            <%--<asp:GridView ID="GridView2" CssClass="table table-striped table-bordered" runat="server"
+                AutoGenerateColumns="False" DataKeyNames="HospitalID" DataSourceID="SqlDataSourcepub"
+                OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                
+            </asp:GridView>--%>
+
+                </div>
+                </div>
     
     </form>
 </body>
