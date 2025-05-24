@@ -4,6 +4,11 @@
 
 <html>
 <head runat="server">
+     <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="Content/Site.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <title>Client Registration</title>
    <script src="Scripts/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="Content/bootstrap.css" />
@@ -12,80 +17,329 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
    <script src="Scripts/jquery-3.7.1.slim.min.js"></script>
      <script src="Scripts/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style>
-        body{
-            padding-bottom: 100px; /* Space for footer*/
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+body {
+    padding-bottom: 100px;
+    background: linear-gradient(
+        to bottom left,
+        #008080 0%,        /* Space grey start */
+        rgba(0, 128, 128, 0.7) 60%,       /* 60% space grey */
+        rgba(189, 183, 107, 0.7) 80%,  /* Fading white */
+        rgba(245, 245, 245, 0.4) 100%  /* Lighter fade at the end */
+    );
+    color:#fff;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+    .navbar {
+    background: linear-gradient(to right, #ff006e,#ff0000);
+    border-bottom: 2px solid #ccc;
+}
+            .carousel-inner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
         }
-        .footer{
-            background-color: aqua; /*for background color*/
-            color: white;
-            padding: 10px; /*size*/
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 128, 128, 0.7); /* teal background */
+            border-radius: 50%;
+            padding: 20px;
+            background-size: 50%, 50%;
         }
-        .footer a{
-            color: white;
-            text-decoration:none;
-        }
-        .footer a:hover{
-            color: white;
-            text-decoration: underline;
-        }
-    </style>
-   
-</head>
-<body>
+        .carousel-item.active img {
+    animation: zoomSlow 10s ease-in-out forwards;
+}
+        /* Keyframes for slow zoom effect */
+        @keyframes zoomSlow {
+            0% {
+                transform: scale(1);
+            }
 
+            100% {
+                transform: scale(1.05); /* Slight zoom-in */
+            }
+        }
+        @keyframes zoomAndPan {
+    0% {
+        transform: scale(1);
+        object-position: center center;
+    }
+    100% {
+        transform: scale(1.05);
+        object-position: center right;
+    }
+}
+                .btn-animated {
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-animated:hover {
+            transform: scale(1.05);
+            background-color: #006666;
+        }
+        .category-images img {
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .category-images img:hover {
+            transform: scale(1.03);
+        }
+         /* SECTION HEADINGS */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #004d4d;
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        /* SERVICE CARDS */
+        .service-card {
+            background-color:white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 128, 128, 0.2);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #000;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 128, 128, 0.3);
+        }
+
+        /* GLOWING LOGIN PANEL */
+        .login-panel {
+            background: #ffffff;
+            border: 2px solid #ff0000;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 20px #ff006e;
+            transition: 0.4s ease-in-out;
+        }
+
+        .login-panel:hover {
+            box-shadow: 0 0 30px #00e6e6;
+        }
+
+        .btn-glow {
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            background-color: #00cccc;
+            box-shadow: 0 0 10px #00cccc;
+        }
     
- <%-- navbar --%>
-    <form id="form1" runat="server">
-        <div>
-            <%-- Header --%>
-            <header class="bg-primary text-white text-center py-3">
-                 <asp:Image ID="Image1"  Width="100" height="100" ImageUrl="~/clinic.png" runat="server" />
-                <h1>AyfaCare</h1>
-            </header>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Online Booking</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Home.aspx">Home</a>
-        </li>
-       
-        <li class="nav-item ">
-           <a class="nav-link active" aria-current="page" href="Login.aspx">Patient</a>
+        .animate-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+    color: #000;
+}
+
+.animate-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Carousel overlay container */
+.carousel-caption.custom-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 128, 128, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+/* Branding text */
+.custom-caption h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #004d4d;
+    margin-bottom: 10px;
+}
+
+.custom-caption p {
+    font-size: 1.3rem;
+    color: #006666;
+    margin-top: 10px;
+}
+
+.custom-caption img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+    footer {
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+
+    .form-control::placeholder {
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form1" runat="server">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="#">
+          <i class="fas fa-clinic-medical me-2" style="font-size: 1.6rem;"></i>
+          AyfaCare
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="Home.aspx">Home</a>
             </li>
-        <li class="nav-item ">
-         <a class="nav-link active" aria-current="page" href="DoctotrsLogins.aspx" >Doctors</a>
-        </li>
-         
-      </ul>
-      <div class="row">
-          <div class="col-4">
-
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="Login.aspx">Patient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="DoctorsLogins.aspx">Doctors</a>
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-4">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            </div>
+            <div class="col-6">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </div>
           </div>
-          <div class="col-6"><button class="btn btn-outline-primary" type="submit">Search</button></div>
-         </div>
-    </div>
-  </div>
-</nav>
-  
-        
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
-            </asp:ContentPlaceHolder>
-           
-           
         </div>
-    </form>
-</body>
+      </div>
+    </nav>
+              <!-- Carousel -->
+        <div id="carouselHospital" class="carousel slide mt-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div style="position: relative;">
+                    <img src="images for home page/afif-ramdhasuma-lPjeFCIFJwk-unsplash.jpg" class="d-block w-100" alt="Hospital 1" />
+                        <div class="carousel-caption custom-caption">
+           
+            <h1>Ayfa Care</h1>
+            <p>Your Health, Our Priority</p>
+        </div>
+    </div>
+                </div>
+                <div class="carousel-item">
+                    <div style="position: relative;">
+                    <img src="images for home page/artur-tumasjan-qLzWvcQq-V8-unsplash.jpg" class="d-block w-100" alt="Doctor" />
+                        <div class="carousel-caption custom-caption">
+                                <h1>Ayfa Care</h1>
+        <p>Your Health, Our Priority</p>
+    </div>
+                        </div>
+                </div>
+                            <div class="carousel-item">
+                <div style="position: relative;">
+                <img src="images for home page/jc-gellidon-uhXlRnt9dTw-unsplash.jpg" class="d-block w-100" alt="Doctor" />
+                    <div class="carousel-caption custom-caption">
+                            <h1>Ayfa Care</h1>
+    <p>Your Health, Our Priority</p>
+</div>
+                    </div>
+            </div>
+                <div class="carousel-item">
+                    <div style="position: relative;">
+                    <img src="images for home page/rusty-watson-yIGinlYA6t8-unsplash.jpg" class="d-block w-100" alt="Surgery" />
+                        <div class="carousel-caption custom-caption">
+                                                    <h1>Ayfa Care</h1>
+    <p>Your Health, Our Priority</p>
+</div>
+                        </div>
+                </div>
+            </div>
+             <button class="carousel-control-prev" type="button" data-bs-target="#carouselHospital" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselHospital" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+        
+
+       
+
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        </div>
+
+
+    <!-- Main Page Content -->
+    <div class="container my-4">
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+    </div>
+  </form>
+
+
+  <!-- Footer -->
+  <footer class="text-center mt-5 p-3 text-white" style="background-color:darkslategrey">
+    <div class="container">
+      <div class="row">
+        <!-- Navigation Links -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="ManagerSignIn.aspx" class="text-white text-decoration-none">Management</a></li>
+            <li class="list-inline-item"><a href="/about" class="text-white text-decoration-none">About</a></li>
+          </ul>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="col-md-6 text-md-end">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <a href="https://facebook.com" target="_blank" class="text-white text-decoration-none">
+                <i class="fab fa-facebook fa-lg me-1"></i>Facebook
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://instagram.com" target="_blank" class="text-white text-decoration-none">
+                <i class="fab fa-instagram fa-lg me-1"></i>Instagram
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="row mt-3">
+        <div class="col text-center">
+          <small>&copy; 2025 AyfaCare. All rights reserved.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>

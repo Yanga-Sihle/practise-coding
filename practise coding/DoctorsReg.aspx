@@ -81,7 +81,7 @@
                         </div>
    <div class="md-3">
    <label>Address</label>
-<asp:TextBox ID="txtAddress" CssClass=" form-control" placeholder="Enter Address" runat="server"></asp:TextBox>
+<asp:TextBox ID="txtAddress" CssClass=" form-control" placeholder="Enter Address" runat="server" OnTextChanged="txtAddress_TextChanged"></asp:TextBox>
    </div>
     <div class="md-3">
    <label>Email Address:</label>
@@ -99,6 +99,15 @@
    <label>Contact</label>
 <asp:TextBox ID="txtContacts" CssClass=" form-control" runat="server"></asp:TextBox>
    </div>
+                      <div class="md-3">
+   <label>Contact</label>
+   <div class="md-3">
+   <label>Biography</label>
+ <asp:TextBox ID="txtbio" runat="server" Placeholder="Tell about yourself"
+     TextMode="MultiLine" CssClass="form-control mb-2" />
+   </div>
+   </div>
+                   
                    <div>
     <asp:FileUpload ID="fulPP" CssClass="form-control " runat="server" />
        </div>
